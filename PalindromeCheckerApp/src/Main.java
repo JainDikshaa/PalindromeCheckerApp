@@ -1,16 +1,20 @@
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
 
-        String word = "madam";
+        Scanner sc = new Scanner(System.in);
 
-        System.out.println("Hardcoded Word: " + word);
+        System.out.print("Enter a word: ");
+        String input = sc.nextLine();
 
-        String reversed = new StringBuilder(word).reverse().toString();
+        String reversed = new StringBuilder(input).reverse().toString();
 
-        if(word.equals(reversed))
-            System.out.println(word + " is a Palindrome");
+        if(input.equalsIgnoreCase(reversed))
+            System.out.println("It is a Palindrome");
         else
-            System.out.println(word + " is NOT a Palindrome");
+            System.out.println("Not a Palindrome");
 
+        sc.close();
     }
 }
