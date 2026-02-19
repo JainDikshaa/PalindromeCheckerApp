@@ -1,21 +1,34 @@
-import java.util.Scanner;
-import java.util.Stack;
+import java.util.*;
+
 public class Main {
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter a word: ");
         String input = sc.nextLine();
+
         Stack<Character> stack = new Stack<>();
-        for(char c : input.toCharArray())
+        Queue<Character> queue = new LinkedList<>();
+
+        for(char c : input.toCharArray()) {
             stack.push(c);
-        String reversed = "";
-        while(!stack.isEmpty())
-            reversed += stack.pop();
-        if(input.equals(reversed))
+            queue.add(c);
+        }
+
+        boolean isPalindrome = true;
+
+        while(!stack.isEmpty()) {
+            if(stack.pop() != queue.remove()) {
+                isPalindrome = false;
+                break;
+            }
+        }
+
+        if(isPalindrome)
             System.out.println("Palindrome");
         else
             System.out.println("Not Palindrome");
+
         sc.close();
     }
 }
