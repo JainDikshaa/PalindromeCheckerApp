@@ -1,11 +1,16 @@
 public class Main {
     public static void main(String[] args) {
 
-        System.out.println("=================================");
-        System.out.println("   WELCOME TO PALINDROME APP");
-        System.out.println("=================================");
-        System.out.println("This application checks palindromes.");
-        System.out.println("More features coming soon...");
+        String word = "madam";
+
+        System.out.println("Hardcoded Word: " + word);
+
+        String reversed = new StringBuilder(word).reverse().toString();
+
+        if(word.equals(reversed))
+            System.out.println(word + " is a Palindrome");
+        else
+            System.out.println(word + " is NOT a Palindrome");
 
     }
 }
