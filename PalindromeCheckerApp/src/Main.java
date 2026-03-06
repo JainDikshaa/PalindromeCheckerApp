@@ -1,5 +1,4 @@
-import java.util.Scanner;
-import java.util.Stack;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -8,16 +7,22 @@ public class Main {
         System.out.print("Enter a word: ");
         String input = sc.nextLine();
 
-        Stack<Character> stack = new Stack<>();
+        Deque<Character> deque = new LinkedList<>();
 
-        for(char c : input.toCharArray())
-            stack.push(c);
+        for(char c : input.toCharArray()) {
+            deque.addLast(c);
+        }
 
-        String reversed = "";
-        while(!stack.isEmpty())
-            reversed += stack.pop();
+        boolean isPalindrome = true;
 
-        if(input.equals(reversed))
+        while(deque.size() > 1) {
+            if(deque.removeFirst() != deque.removeLast()) {
+                isPalindrome = false;
+                break;
+            }
+        }
+
+        if(isPalindrome)
             System.out.println("Palindrome");
         else
             System.out.println("Not Palindrome");
