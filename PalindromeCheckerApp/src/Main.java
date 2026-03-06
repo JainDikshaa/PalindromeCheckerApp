@@ -7,16 +7,16 @@ public class Main {
         System.out.print("Enter a word: ");
         String input = sc.nextLine();
 
-        Deque<Character> deque = new LinkedList<>();
+        LinkedList<Character> list = new LinkedList<>();
 
         for(char c : input.toCharArray()) {
-            deque.addLast(c);
+            list.add(c);
         }
 
         boolean isPalindrome = true;
 
-        while(deque.size() > 1) {
-            if(deque.removeFirst() != deque.removeLast()) {
+        while(list.size() > 1) {
+            if(list.removeFirst() != list.removeLast()) {
                 isPalindrome = false;
                 break;
             }
