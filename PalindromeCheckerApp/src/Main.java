@@ -1,24 +1,33 @@
 import java.util.*;
 
-class PalindromeService {
+public class Main {
 
-    public boolean checkPalindrome(String input) {
-        String reversed = new StringBuilder(input).reverse().toString();
-        return input.equals(reversed);
+    public static boolean isPalindrome(String input) {
+
+        input = input.replaceAll("\\s+", "").toLowerCase();
+
+        int left = 0;
+        int right = input.length() - 1;
+
+        while(left < right) {
+            if(input.charAt(left) != input.charAt(right))
+                return false;
+
+            left++;
+            right--;
+        }
+
+        return true;
     }
 
-}
-
-public class Main {
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
-        PalindromeService service = new PalindromeService();
 
-        System.out.print("Enter a word: ");
+        System.out.print("Enter text: ");
         String input = sc.nextLine();
 
-        if(service.checkPalindrome(input))
+        if(isPalindrome(input))
             System.out.println("Palindrome");
         else
             System.out.println("Not Palindrome");

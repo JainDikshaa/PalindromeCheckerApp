@@ -1,21 +1,15 @@
+class PalindromeTest {
 
-    import static org.junit.jupiter.api.Assertions.*;
-import org.junit.jupiter.api.Test;
-
-    class PalindromeTest {
-
-        boolean isPalindrome(String input) {
-            String reversed = new StringBuilder(input).reverse().toString();
-            return input.equals(reversed);
-        }
-
-        @Test
-        void testPalindromeTrue() {
-            assertTrue(isPalindrome("madam"));
-        }
-
-        @Test
-        void testPalindromeFalse() {
-            assertFalse(isPalindrome("hello"));
-        }
+    boolean isPalindrome(String input) {
+        String reversed = new StringBuilder(input).reverse().toString();
+        return input.equals(reversed);
     }
+
+    public static void main(String[] args) {
+
+        PalindromeTest test = new PalindromeTest();
+
+        System.out.println("madam -> " + test.isPalindrome("madam"));
+        System.out.println("hello -> " + test.isPalindrome("hello"));
+    }
+}
